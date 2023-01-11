@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Livros</title>
+</head>
+<body>
+<h1>Livros da Biblioteca</h1>
+<!--id nome quantidade | registar editar-->
+
+<tr th:each="book : ${books}"  >
+    <td th:text="${book.id}">1</td>
+    <td><a href="#" th:text="${book.name}">NOME</a></td>
+    <td th:text="${book.genre}">Genero ...</td>
+    <td th:text="${book.quantity}">Quantidade ...</td>
+    <a href="/book_edit_page" ><img style="width: 10px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorified.com%2Fimages%2Fedit-icon-33.png&f=1&nofb=1&ipt=adca6c24b2d69f5f9fd45f836deea77122f2f15ccfd3e77de3849686605267ba&ipo=images"></a>
+<br/>
+</tr>
+
+<a href="/book_register_page">Registrar livro</a>
+
+</body>
+</html>

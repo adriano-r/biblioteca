@@ -20,7 +20,7 @@ public class UsersService {
             return null;
         } else {
             if (usersRepository.findFirstByLogin(login).isPresent()) {
-                System.out.println("Duplicate login");
+                System.out.println("Login duplicado!");
                 return null;
             }
             UsersModel usersModel = new UsersModel();
