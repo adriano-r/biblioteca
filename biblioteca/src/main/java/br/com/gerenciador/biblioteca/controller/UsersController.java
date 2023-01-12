@@ -44,7 +44,7 @@ public class UsersController {
         UsersModel authenticated = usersService.authenticate(usersModel.getLogin(), usersModel.getPassword());
         if(authenticated != null){
             model.addAttribute("userLogin", authenticated.getLogin());
-            return "personal_page";
+            return "redirect:/books";
         }else{
             return "error_page";
         }

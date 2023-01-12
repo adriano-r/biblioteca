@@ -13,11 +13,12 @@
     <td><a href="#" th:text="${book.name}">NOME</a></td>
     <td th:text="${book.genre}">Genero ...</td>
     <td th:text="${book.quantity}">Quantidade ...</td>
-    <a href="/book_edit_page" ><img style="width: 10px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorified.com%2Fimages%2Fedit-icon-33.png&f=1&nofb=1&ipt=adca6c24b2d69f5f9fd45f836deea77122f2f15ccfd3e77de3849686605267ba&ipo=images"></a>
+    <a th:href="@{/books/{id}(id = ${book.id})}" ><img style="width: 10px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorified.com%2Fimages%2Fedit-icon-33.png&f=1&nofb=1&ipt=adca6c24b2d69f5f9fd45f836deea77122f2f15ccfd3e77de3849686605267ba&ipo=images"></a>
+    <a th:href="@{/books/delete/{id}(id = ${book.id})}"  ><img style="width: 10px" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_275374.png&f=1&nofb=1&ipt=475d8f00ef3a96af4467a9a7e652fc74d661518973993f43da787e6cd4631a1f&ipo=images"></a>
 <br/>
 </tr>
 
-<a href="/book_register_page">Registrar livro</a>
+<a href="/registerBook">Registrar livro</a>
 
 </body>
 </html>
