@@ -1,8 +1,11 @@
 br/com/gerenciador/biblioteca/service/UsersService.class
-br/com/gerenciador/biblioteca/controller/BooksController.class
-br/com/gerenciador/biblioteca/model/UsersModel.class
 br/com/gerenciador/biblioteca/repository/BooksRepository.class
+br/com/gerenciador/biblioteca/service/ReserveService.class
 br/com/gerenciador/biblioteca/model/BooksModel.class
 br/com/gerenciador/biblioteca/controller/UsersController.class
 br/com/gerenciador/biblioteca/service/BooksService.class
+br/com/gerenciador/biblioteca/model/ReserveBook.class
+br/com/gerenciador/biblioteca/controller/BooksController.class
+br/com/gerenciador/biblioteca/model/UsersModel.class
+br/com/gerenciador/biblioteca/controller/ReserveController.class
 br/com/gerenciador/biblioteca/repository/UsersRepository.class

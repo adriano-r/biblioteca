@@ -43,7 +43,6 @@ public class BooksService {
 
     public BooksModel updateBook(Integer id, BooksModel model) {
         Optional<BooksModel> updatedBook = booksRepository.findById(id);
-        System.out.println(updatedBook);
         BooksModel booksModel = updatedBook.get();
         booksModel.setName(model.getName());
         booksModel.setGenre(model.getGenre());
@@ -53,5 +52,12 @@ public class BooksService {
 
     public void deleteBook(Integer id){
         booksRepository.deleteById(id);
+    }
+
+    public BooksModel updateBookDisponible(Integer id){
+        Optional<BooksModel> updatedBook = booksRepository.findById(id);
+        BooksModel booksModel = updatedBook.get();
+        booksModel.setDisponible(true);
+        return booksRepository.save(booksModel);
     }
 }

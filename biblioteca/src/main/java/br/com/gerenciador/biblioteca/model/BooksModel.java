@@ -14,6 +14,16 @@ public class BooksModel {
     String genre;
     Integer quantity;
 
+    Boolean disponible;
+
+    public Boolean getDisponible() {
+        return disponible;
+    }
+
+    public void setDisponible(Boolean disponible) {
+        this.disponible = disponible;
+    }
+
     public Integer getId() {
         return id;
     }

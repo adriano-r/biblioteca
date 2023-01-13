@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Informações Pessoais</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+<div class="title" style="width: 35%">
+<h2>Lista de Usuários</h2>
+<tr th:each="user : ${users}">
+    <td th:text="${user.id}"></td>
+    <td><a href="#" th:text="${user.login}">Nome</a></td>
+    <td th:text="${user.email}">Email</td>
+<!--    <td th:text="${user.password}">Password</td>-->
+    <a th:href="@{/users/edit/{id}(id = ${user.id})}"><img style="width: 10px" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fvectorified.com%2Fimages%2Fedit-icon-33.png&f=1&nofb=1&ipt=adca6c24b2d69f5f9fd45f836deea77122f2f15ccfd3e77de3849686605267ba&ipo=images"></a>
+    <a th:href="@{/users/delete/{id}(id = ${user.id})}"><img style="width: 10px" src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fcdn.onlinewebfonts.com%2Fsvg%2Fimg_275374.png&f=1&nofb=1&ipt=475d8f00ef3a96af4467a9a7e652fc74d661518973993f43da787e6cd4631a1f&ipo=images"></a>
+    <br/>
+</tr><br>
+
+<a href="/register">Registra-se</a><br>
+<a href="/userPersonal">Voltar</a><br>
+</div>
+</body>
+</html>

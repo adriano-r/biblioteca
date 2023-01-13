@@ -11,4 +11,6 @@ public interface BooksRepository extends JpaRepository<BooksModel, Integer> {
     Optional<BooksModel> findByName(String name); //editar livro
     List<BooksModel> findAll(); //listar livros
 
+//    List<BooksModel> findAllByDi0sponible();
+
 }

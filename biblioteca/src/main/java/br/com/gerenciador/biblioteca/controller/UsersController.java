@@ -7,7 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.Optional;
 
 @Controller
 public class UsersController {
@@ -31,6 +34,25 @@ public class UsersController {
         return "login_page";
     }
 
+    @GetMapping("/users")
+    public String getUsersPage(Model model) {
+        model.addAttribute("users", usersService.listUsers());
+        return "users_page";
+    }
+
+    @PostMapping("/users/edit/{id}")
+    public String editUsers(@PathVariable("id") Integer id, @ModelAttribute UsersModel usersModel){
+        UsersModel editUser = usersService.updateUser(id, usersModel);
+        return "users_page";
+    }
+
+    @GetMapping("/users/{id}")
+    public String getUsersRegisteredPage(@PathVariable("id") Integer id, Model model) {
+        Optional<UsersModel> usersModel = usersService.getUser(id);
+        model.addAttribute("user", usersModel.get());
+        return "personal_user_page";
+    }
+
     @PostMapping("/register")
     public String register(@ModelAttribute UsersModel usersModel){
         System.out.println("register request: " + usersModel);
@@ -44,9 +66,25 @@ public class UsersController {
         UsersModel authenticated = usersService.authenticate(usersModel.getLogin(), usersModel.getPassword());
         if(authenticated != null){
             model.addAttribute("userLogin", authenticated.getLogin());
-            return "redirect:/books";
+            return "redirect:/userPersonal";
         }else{
             return "error_page";
         }
+    }
+
+    @GetMapping("/users/edit/{id}")
+    public String getUserRegisterPage(@PathVariable("id") Integer id, Model model) {
+        Optional<UsersModel> usersModel = usersService.getUser(id);
+        model.addAttribute("user", usersModel.get());
+        return "user_edit_page";
+    }
+
+    @GetMapping("/userPersonal")
+    public String getPersonalPage() { return "personal_user_page";}
+
+    @GetMapping("/users/delete/{id}")
+    public String deleteUser(@PathVariable("id") Integer id, Model model) {
+        usersService.deleteUser(id);
+        return "redirect:/users";
     }
 }

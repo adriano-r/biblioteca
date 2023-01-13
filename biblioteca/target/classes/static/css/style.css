@@ -5,6 +5,7 @@ body {
   background: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fz%2Fmany-stacks-educational-books-to-teach-library-blue-background-178989576.jpg&f=1&nofb=1&ipt=b97c02170728fef2b7e1cf0a483e7090e8fa4db237eba052c4179230a733f05b&ipo=images);
   background-size: cover;
   background-repeat: no-repeat;
+
 }
 
 body::before {
@@ -14,8 +15,8 @@ body::before {
   left: 0;
   width: 25%;
   height: 100%;
-  background-color: #03a9f4;
-  opacity: 0.8;
+  background-color: #eee;
+  opacity: 0.0;
 }
 
 .form {
@@ -92,4 +93,40 @@ body::before {
 
 .form a:hover {
   color: #ff4987;
+}
+
+.title {
+    color: #222;
+    font-weight: 700;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    min-height: 400px;
+    background-color: #fff;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+    padding: 50px;
+    box-sizing: border-box;
+    opacity: 0.99;
+}
+
+.button {
+    style: none;
+    font-weight: 500;
+    font-size: 18px;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+.book-item {
+    padding-right: 10px;
+    display: flex;
+    justify-content:right;
+    align-items: flex-end;
 }

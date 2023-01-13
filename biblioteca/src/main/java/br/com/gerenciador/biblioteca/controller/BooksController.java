@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @Controller
-
 public class BooksController {
 
     @Autowired
@@ -19,7 +18,6 @@ public class BooksController {
     public BooksController(BooksService booksService) {
         this.booksService = booksService;
     }
-
 
     @GetMapping("/books")
     public String getLivrosPage(Model model) {
@@ -45,6 +43,12 @@ public class BooksController {
         return "books_page";
     }
 
+    @GetMapping("/books/disponible/{id}") //livros disponiveis
+    public String disponibleBook(@PathVariable("id") Integer id, @ModelAttribute BooksModel booksModel){
+        BooksModel editBook = booksService.updateBookDisponible(id);
+        return "redirect:/books";
+    }
+
     @GetMapping("/books/{id}")
     public String getBooksRegisterPage(@PathVariable("id") Integer id, Model model) {
         Optional<BooksModel> booksModel = booksService.getBook(id);
@@ -53,7 +57,7 @@ public class BooksController {
     }
 
     @GetMapping("/books/delete/{id}")
-    public String deleteBook(@PathVariable("id") Integer id, Model model) {
+    public String deleteBook(@PathVariable("id") Integer id) {
         booksService.deleteBook(id);
         return "redirect:/books";
     }
