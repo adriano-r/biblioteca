@@ -3,6 +3,7 @@ package br.com.gerenciador.biblioteca.model;
 import jakarta.persistence.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "users_table")
@@ -48,6 +49,9 @@ public class UsersModel {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    @ManyToMany(mappedBy = "usersModels")
+    Set<BooksModel> booksModels;
 
     @Override
     public boolean equals(Object o) {

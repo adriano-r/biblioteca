@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="form">
-  <form method="post" th:action="@{/users/{id}(id = ${user.id})}" th:object="${users}">
+  <form method="post" th:action="@{/users/edit/{id}(id = ${user.id})}" th:object="${users}">
     <h2>Alterar dados</h2>
     <div class="input-box">
       <i class="fa fa-user" aria-hidden="true"></i>

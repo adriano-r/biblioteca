@@ -3,18 +3,16 @@ package br.com.gerenciador.biblioteca.service;
 import br.com.gerenciador.biblioteca.repository.BooksRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class ReserveService {
 
     private BooksRepository booksRepository;
 
-//    public List<BooksModel> listBooks() {
-//        List<BooksModel> searchResults = booksRepository
-//                .findAll(Specification
-//                        .where(specA)
-//                        .and(Specification
-//                                .not(specB)));
-//        return booksRepository.findAll();
-//    }
+    public Object list() {
+        Optional<Object> notReserved = Optional.ofNullable(booksRepository.findNotReserved());
+        return notReserved.get();
+    }
 
 }

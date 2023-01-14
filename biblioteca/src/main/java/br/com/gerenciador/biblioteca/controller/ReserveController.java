@@ -15,9 +15,11 @@ public class ReserveController {
         this.booksService = booksService;
     }
 
-    @GetMapping("/personal")
-    public String getReservaPage(Model model) {
-        model.addAttribute("books", booksService.listBooks());
+    @GetMapping("/reserved")
+    public String getReservedBook(Model model){
+        Object reservedBook = booksService.listBooks();
+        model.addAttribute("reserveds", reservedBook);
+        System.out.println(reservedBook);
         return "personal_user_page";
     }
 

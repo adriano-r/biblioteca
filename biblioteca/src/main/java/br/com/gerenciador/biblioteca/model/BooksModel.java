@@ -3,6 +3,7 @@ package br.com.gerenciador.biblioteca.model;
 import jakarta.persistence.*;
 
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "books_table")
@@ -15,6 +16,13 @@ public class BooksModel {
     Integer quantity;
 
     Boolean disponible;
+
+    @ManyToMany
+    @JoinTable(
+            name = "reserved_book",
+            joinColumns = @JoinColumn(name = "book_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    Set<UsersModel> usersModels;
 
     public Boolean getDisponible() {
         return disponible;
