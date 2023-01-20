@@ -2,6 +2,7 @@ package br.com.gerenciador.biblioteca.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -22,7 +23,15 @@ public class BooksModel {
             name = "reserved_book",
             joinColumns = @JoinColumn(name = "book_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    Set<UsersModel> usersModels;
+    Set<UsersModel> usersModels = new HashSet<>();
+
+    public Set<UsersModel> getUsersModels() {
+        return usersModels;
+    }
+
+    public void setUsersModels(Set<UsersModel> usersModels) {
+        this.usersModels = usersModels;
+    }
 
     public Boolean getDisponible() {
         return disponible;

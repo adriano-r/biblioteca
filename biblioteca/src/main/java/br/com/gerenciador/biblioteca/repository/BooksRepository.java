@@ -14,7 +14,9 @@ public interface BooksRepository extends JpaRepository<BooksModel, Integer> {
 
 //    @Query("select book.*, count(reserved.book_id) FROM biblioteca.books_table as book left join biblioteca.reserved_book as reserved on book.id = reserved.book_id where disponible = true group by book.id;")
 
-    @Query( nativeQuery = true, value = "select book.*, count(reserved.book_id) FROM biblioteca.books_table as book left join biblioteca.reserved_book as reserved on book.id = reserved.book_id where disponible = true group by book.id;")
-    List<Object> findNotReserved();
+    @Query( nativeQuery = true, value = "select book.*, count(reserved.book_id) as contador FROM biblioteca.books_table as book left join biblioteca.reserved_book as reserved on book.id = reserved.book_id where disponible = true group by book.id;")
+
+    List<BooksModel> findAllNotReserved();
+
 
 }

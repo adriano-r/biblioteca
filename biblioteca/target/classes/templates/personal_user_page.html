@@ -11,8 +11,11 @@
 
     <tr th:each="reserved : ${reserveds}">
         <td th:text="${reserved.name}"></td>
+        <td th:text="${reserved.getUsersModels()}"></td>
+        <td th:text="${reserved.quantity}"></td>
+        <br>
     </tr>
-    <a href="/reseved">Reservar</a>
+    <a href="/reserved">Reservar</a>
 
     <a href="/books"><h4>Livros</h4></a>
     <a href="/users"><h4>Usuarios</h4></a><br>

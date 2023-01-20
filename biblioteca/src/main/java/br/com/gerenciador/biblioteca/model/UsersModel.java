@@ -2,6 +2,7 @@ package br.com.gerenciador.biblioteca.model;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
@@ -51,7 +52,7 @@ public class UsersModel {
     }
 
     @ManyToMany(mappedBy = "usersModels")
-    Set<BooksModel> booksModels;
+    Set<BooksModel> booksModels = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {
