@@ -21,8 +21,8 @@ public class BooksModel {
     @ManyToMany
     @JoinTable(
             name = "reserved_book",
-            joinColumns = @JoinColumn(name = "book_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id"))
+            joinColumns = { @JoinColumn(name = "book_id")},
+            inverseJoinColumns = { @JoinColumn(name = "user_id")})
     Set<UsersModel> usersModels = new HashSet<>();
 
     public Set<UsersModel> getUsersModels() {

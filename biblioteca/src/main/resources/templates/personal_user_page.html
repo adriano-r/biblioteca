@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Pagina do Usuario</title>
@@ -7,19 +7,25 @@
 </head>
 <body>
 <div class="title">
-    <h2>Pagina Inicial</h2><br>
+    <h2>Pagina Pessoal</h2><br>
 
     <tr th:each="reserved : ${reserveds}">
         <td th:text="${reserved.name}"></td>
-        <td th:text="${reserved.getUsersModels()}"></td>
         <td th:text="${reserved.quantity}"></td>
+        <a th:href="@{/reserved/{id}(id = ${reserved.id})}">Reservar</a>
         <br>
     </tr>
-    <a href="/reserved">Reservar</a>
-
+    <a href="/reserved"><h4>Reservar livro</h4></a>
     <a href="/books"><h4>Livros</h4></a>
     <a href="/users"><h4>Usuarios</h4></a><br>
-    <a href="/"><h4>Home</h4></a>
+    <a href="/"><h4>Ir para Home</h4></a>
+    <hr>
+    <h4>Livros reservados</h4><br>
+    <tr th:each="userBooks : ${usersBooks}">
+        <td th:text="${userBooks.name}"></td>
+        <a th:href="@{/back/{id}(id = ${userBooks.id})}">Devolver</a>
+        <br>
+    </tr>
 
 </div>
 

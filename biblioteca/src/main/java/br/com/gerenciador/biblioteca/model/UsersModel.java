@@ -51,7 +51,7 @@ public class UsersModel {
         this.email = email;
     }
 
-    @ManyToMany(mappedBy = "usersModels")
+    @ManyToMany(mappedBy="usersModels", fetch=FetchType.EAGER)
     Set<BooksModel> booksModels = new HashSet<>();
 
     @Override

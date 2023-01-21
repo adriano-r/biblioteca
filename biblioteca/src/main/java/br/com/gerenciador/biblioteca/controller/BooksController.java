@@ -61,5 +61,4 @@ public class BooksController {
         booksService.deleteBook(id);
         return "redirect:/books";
     }
-
 }
